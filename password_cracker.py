@@ -24,7 +24,7 @@ except:
 wordarr = []
 hasharr = []
 
-word_file = open("https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt", "r")
+# word_file = open("https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt", "r")
 for word in word_file:
     word_file = open("wordlist.txt", "r")
     print("--------------------------------")
@@ -44,9 +44,9 @@ for word in word_file:
         md5hash = hashlib.md5(encodedword).hexdigest()  # creating the md5 hash
 
 
-        print(str(md5hash).strip('\r\n'))
-        print(str(pas).strip('\r\n'))
-        print("\n")
+        print(str(md5hash).strip('\r\n')) #print hash of words
+        print(str(pas).strip('\r\n')) #print hash for hash list
+        print("\n") #spacer
 
 
         if str(md5hash).rstrip('\r\n') == str(pas).rstrip('\r\n'):
@@ -56,8 +56,8 @@ for word in word_file:
             found.append("Password: " + word + " = MD5 Hash: " + md5hash)
 
 
-if foundFlag == 0:
+if foundFlag == 0: #if passwords are found
       print("Password is not in the list")
 
-for password in found:
+for password in found: #show array of found passwords
     print(password)
